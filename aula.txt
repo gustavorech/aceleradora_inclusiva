@@ -1,0 +1,59 @@
+<h1>Meu nome é --Nome--</div>
+
+<p id="info">
+  A idade informada é:
+  <span id="tagIdade"></span>
+</p>
+
+<p id="desafio">--desafio--</p>
+
+
+
+
+
+var executar = false;
+
+var idade = perguntarIdade(executar);
+mudarTextoECoresIdade(idade);
+
+
+
+
+// métodos auxiliares
+function perguntarIdade(executar) {
+  if (executar) {
+    var idadeString = prompt("Qual é sua idade?");
+    return parseInt(idadeString);
+  }
+}
+
+function mudarTexto(tag, texto) {
+  document.getElementById(tag).innerText = texto;
+}
+
+function mudarTextoECoresIdade(idade) {
+  mudarTexto("tagIdade", idade);
+  
+  if (idade < 18) {
+    mudarCorFundoETexto("info", "green", "blue");
+  }
+  else if (idade >= 18 && idade < 25) {
+    mudarCorFundoETexto("info", "blue", "red");
+  }
+  else {
+    mudarCorFundoETexto("info", "red", "green");
+  }
+}
+
+function mudarCorFundoETexto(tag, corFundo, corTexto) {
+  mudarCorFundo(tag, corFundo);
+  mudarCorTexto(tag, corTexto);
+}
+
+function mudarCorFundo(tag, cor) {
+  document.getElementById(tag).style.backgroundColor = cor;
+}
+
+function mudarCorTexto(tag, cor) {
+  document.getElementById(tag).style.color = cor;
+}
