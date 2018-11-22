@@ -1,0 +1,34 @@
+<form>  
+<div class="container">
+    <label for="uname"><b>Username: </b></label>
+    <input type="text" placeholder="Informe o nome" id="user" required>
+
+    <label for="idade"><b>Idade: </b></label>
+    <input type="text" placeholder="Informe a idade" id="idade" required>
+
+  </div>
+</form>
+<button onclick="login()">Verificar</button>
+
+
+
+// javascript
+function login() {
+  var nome = buscarTexto("user");
+  var idade = buscarTexto("idade");
+  
+  validarIdade(idade);
+}
+
+function buscarTexto(id) {
+  return document.getElementById(id).value;
+}
+
+function validarIdade(idade) {
+  if(isNaN(parseInt(idade))) {
+    alert("idade não é um número");
+    
+    document.getElementById("idade").value = "";
+    document.getElementById("idade").style.backgroundColor = "red";
+  }
+}
